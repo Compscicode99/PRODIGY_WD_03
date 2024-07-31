@@ -1,0 +1,153 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #2c003e;
+    margin: 0;
+    font-family: 'Roboto', Arial, sans-serif;
+    color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid gold; 
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: rgb(218, 165, 32);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.scoreboard div {
+    background-color: rgba(255, 255, 255, 0.1); 
+    padding: 10px;
+    border-radius: 5px;
+    width: 100px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cell:hover {
+    background-color: #fcfcfc; 
+    transform: scale(1.05); 
+}
+
+.cell.x {
+    color: #ff073a; 
+    background: rgba(241, 190, 190, 0.7); 
+}
+
+.cell.o {
+    color: #39ff14;
+    background: rgba(169, 244, 169, 0.7); 
+}
+
+.winner .cell {
+    animation: blink 1s infinite alternate; 
+}
+
+@keyframes blink {
+    from { background-color: #fcfcfc; }
+    to { background-color: yellow; }
+}
+
+#winningMessageText {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center; 
+    color: gold;
+    animation: zoomIn 0.5s forwards;
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(76, 175, 80);
+    color: white;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: rgb(69, 160, 73);
+    transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+    .game-board {
+        grid-template-columns: repeat(3, 80px);
+        grid-template-rows: repeat(3, 80px);
+    }
+
+    .cell {
+        width: 80px;
+        height: 80px;
+        font-size: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    button {
+        font-size: 1rem;
+    }
+}
